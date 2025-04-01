@@ -52,7 +52,7 @@ class ListaCompra
      */
     public function getProducts(): string
     {
-        return implode(',', $this->products);
+        return implode(', ', $this->products);
     }
 
 }

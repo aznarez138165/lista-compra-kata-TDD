@@ -50,4 +50,14 @@ final class ListaCompraTest extends TestCase
         $this->listaCompra->action("añadir Pan 2");
         $this->assertEquals("pan x2",$this->listaCompra->getProductsString());
     }
+
+    /**
+     * @test
+     */
+    public function givenAddTwoProductsReturnsProductsStringWithProductsAdded(): void
+    {
+        $this->listaCompra->action("añadir Pan 2");
+        $this->listaCompra->action("añadir leche");
+        $this->assertEquals("pan x2, leche x1",$this->listaCompra->getProductsString());
+    }
 }
