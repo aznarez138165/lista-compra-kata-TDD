@@ -14,6 +14,13 @@ class ListaCompra
         if ($this->isEmpty()) {
             return "";
         }
+
+        $string = "";
+        foreach ($this->products as $product) {
+            $string .= $product;
+        }
+
+        return $string;
     }
 
     /**
@@ -22,6 +29,13 @@ class ListaCompra
     public function isEmpty(): bool
     {
         return empty($this->products);
+    }
+
+    public function action(string $action)
+    {
+        if ($action === "añadir pan") {
+            $this->products[] = "pan x1";
+        }
     }
 
 }
