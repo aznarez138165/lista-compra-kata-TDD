@@ -16,4 +16,12 @@ final class ListaCompraTest extends TestCase
         $this->listaCompra = new ListaCompra();
     }
 
+    /**
+     * @test
+     */
+    public function givenEmptyListReturnsEmptyString(): void
+    {
+        $this->assertEquals("",$this->listaCompra->getProductsString());
+    }
+
 }
