@@ -31,6 +31,8 @@ class ListaCompra
     {
         if ($action === "añadir pan") {
             $this->products[] = "pan x1";
+        } else if ($action === "añadir pan 2") {
+            $this->products[] = "pan x2";
         }
     }
 
