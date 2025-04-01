@@ -5,7 +5,7 @@ build-image:
 	docker build -t docker-php-lista-compra .
 
 build-container:
-	docker run -dt --name docker-php-lista-compra -v .:/540/Ohce docker-php-lista-compra
+	docker run -dt --name docker-php-lista-compra -v .:/540/ListaCompra docker-php-lista-compra
 	docker exec docker-php-lista-compra composer install
 
 start:
