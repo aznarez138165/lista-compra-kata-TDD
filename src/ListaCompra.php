@@ -37,7 +37,7 @@ class ListaCompra
     public function action(string $action): void
     {
         if (preg_match("/^añadir\s+([^\d]+)\s*(\d+)?$/", $action, $matches)) {
-            $product = trim($matches[1]);
+            $product = strtolower(trim($matches[1]));
             if (isset($matches[2])) {
                 $quantity = intval(trim($matches[2]));
             } else {
