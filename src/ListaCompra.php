@@ -15,12 +15,8 @@ class ListaCompra
             return "";
         }
 
-        $string = "";
-        foreach ($this->products as $product) {
-            $string .= $product;
-        }
+       return $this->getProducts();
 
-        return $string;
     }
 
     /**
@@ -36,6 +32,14 @@ class ListaCompra
         if ($action === "añadir pan") {
             $this->products[] = "pan x1";
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getProducts(): string
+    {
+        return implode(',', $this->products);
     }
 
 }
