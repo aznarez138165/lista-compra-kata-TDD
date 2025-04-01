@@ -9,6 +9,9 @@ class ListaCompra
     {
     }
 
+    /**
+     * @return string
+     */
     public function getProductsString()
     {
         if ($this->isEmpty()) {
@@ -27,12 +30,20 @@ class ListaCompra
         return empty($this->products);
     }
 
-    public function action(string $action)
+    /**
+     * @param string $action
+     * @return void
+     */
+    public function action(string $action): void
     {
-        if ($action === "añadir pan") {
-            $this->products[] = "pan x1";
-        } else if ($action === "añadir pan 2") {
-            $this->products[] = "pan x2";
+        if (preg_match("/^añadir\s+([^\d]+)\s*(\d+)?$/", $action, $matches)) {
+            $product = trim($matches[1]);
+            if (isset($matches[2])) {
+                $quantity = intval(trim($matches[2]));
+            } else {
+                $quantity = 1;
+            }
+            $this->products[] = "{$product} x{$quantity}";
         }
     }
 
