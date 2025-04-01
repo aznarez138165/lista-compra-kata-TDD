@@ -11,9 +11,17 @@ class ListaCompra
 
     public function getProductsString()
     {
-        if (empty($this->products)) {
+        if ($this->isEmpty()) {
             return "";
         }
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEmpty(): bool
+    {
+        return empty($this->products);
     }
 
 }
