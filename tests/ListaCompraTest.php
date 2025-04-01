@@ -60,4 +60,13 @@ final class ListaCompraTest extends TestCase
         $this->listaCompra->action("añadir leche");
         $this->assertEquals("pan x2, leche x1",$this->listaCompra->getProductsString());
     }
+
+    /**
+     * @test
+     */
+    public function givenDeleteInvalidProductReturnsMessage(): void
+    {
+        $this->listaCompra->action("eliminar pan");
+        $this->assertEquals("El producto seleccionado no existe",$this->listaCompra->getProductsString());
+    }
 }

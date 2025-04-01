@@ -5,6 +5,7 @@ namespace Deg540\DockerPHPListaCompra;
 class ListaCompra
 {
     private array $products = [];
+    private array $quantities = [];
     public function __construct()
     {
     }
@@ -44,6 +45,12 @@ class ListaCompra
                 $quantity = 1;
             }
             $this->products[] = "{$product} x{$quantity}";
+        } else if (preg_match("/^eliminar\s+([^\d]+)$/", $action, $matches)) {
+            $product = strtolower(trim($matches[1]));
+
+            if(array_search($product, $this->products) === false) {
+                echo "el producto seleccionado no existe";
+            }
         }
     }
 
